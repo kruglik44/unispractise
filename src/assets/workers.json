@@ -1,0 +1,85 @@
+{
+  "employees": [
+    {
+    "id": "1",
+    "Name": "Dima Kruglov",
+    "group": "Web developer",
+    "position": "Junior",
+    "leader": "Ruslan",
+    "experience": "Angular, bootstrap",
+    "note": "good reliable programmer",
+    "certificates": "coursera, udemy",
+    "comments": " "
+    },
+    {
+    "id": "2",
+    "Name": "Daniil Yarovoy",
+    "group": "Web developer",
+    "position": "Middle",
+    "leader": "Ruslan",
+    "experience": "C++, python",
+    "note": "experienced programmer from intel",
+    "certificates": " ",
+    "comments": " "
+    },
+    {
+      "id": "3",
+      "Name": "Max Korzh",
+      "group": "HR",
+      "position": "Middle",
+      "leader": "John Snow",
+      "experience": "jira, gangsta rap",
+      "note": " ",
+      "certificates": " ",
+      "comments": " "
+      },
+      {
+        "id": "4",
+        "Name": "George Bocharov",
+        "group": "BA",
+        "position": "Junior",
+        "leader": "Vladimir",
+        "experience": "spring, python",
+        "note": " advanced backend developer",
+        "certificates": " ",
+        "comments": " "
+        },
+        {
+          "id": "5",
+          "Name": "Andrew Antonenko",
+          "group": "Web developer",
+          "position": "Middle",
+          "leader": "Maxim",
+          "experience": "golang, python",
+          "note": "experienced mobile developer",
+          "certificates": " ",
+          "comments": " "
+          }
+  ],
+  "projects":[
+   {
+    "id": "1",
+    "name": "Sberbank",
+    "leader": "Ruslan",
+    "position": "Frontend developer",
+    "comments": "bla bla bla",
+    "part": 30
+   },
+   {
+    "id": "2",
+    "name": "RZHD",
+    "leader": "Mike",
+    "position": "Frontend developer",
+    "comments": "bla bla bla",
+    "part": 10
+   },
+   {
+    "id": "3",
+    "name": "Netcracker",
+    "leader": "Alex",
+    "position": "Frontend developer",
+    "comments": "bla bla bla",
+    "part": 60
+   }
+  ]
+}

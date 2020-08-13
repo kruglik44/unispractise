@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Project details page</h1>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Leader</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">Part</th>
+                    <th scope="col">Comments</th>
+                    
+                </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <th scope="row">{{project.id}}</th>
+                            <td>{{project.name }}</td>
+                            <td>{{project.leader}}</td>
+                            <td>{{project.position}}</td>
+                            <td>{{project.part}}</td>
+                            <td>{{project.comments}}</td>
+                        </tr>
+                </tbody>
+            </table>
+            <br>
+            <button class="btn btn-primary" (click) = "setChanges()">Edit project</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container" *ngIf = "show">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-xs-6">
+                    <label>Project Id</label>
+                    <input class="form-control"  [(ngModel)]="project.id">
+                    <br>
+                    <label>Project Name</label>
+                    <input class="form-control"  [(ngModel)]="project.name">
+                    <br>
+                    <label>Project Leader</label>
+                    <input class="form-control"  [(ngModel)]="project.leader">
+                    <br>
+                    <label>Project Part</label>
+                    <input class="form-control"  [(ngModel)]="project.part">
+                    <br>
+                    <label>Project Position</label>
+                    <input class="form-control"  [(ngModel)]="project.position">
+                    <br>
+                    <label>Project Comments</label>
+                    <input class="form-control"  [(ngModel)]="project.comments">    
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

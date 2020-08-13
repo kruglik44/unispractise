@@ -1,0 +1,68 @@
+<br>
+<div class="container">
+    <h2>Current projects</h2>
+    <div class="row">
+        <div class="col-xs-12">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Leader</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">Part</th>
+                    <th scope="col">Comments</th>
+                    <th scope="col" *ngIf = "show"></th>
+                </tr>
+                </thead>
+                <tbody>
+                        <tr *ngFor = "let project of projects; index as num">
+                            <th scope="row">{{project.id}}</th>
+                            <td><a [routerLink] = "['/users', userId, 'projects', num]">{{project.name }}</a></td>
+                            <td>{{project.leader}}</td>
+                            <td>{{project.position}}</td>
+                            <td>{{project.part  | toPercent}} %</td>
+                            <td>{{project.comments}}</td>
+                            <td *ngIf = "show"><button class="btn btn-danger" (click) = "deleteProject(num)">Delete</button></td>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="container">
+            <button class="btn btn-success" (click) = "showMenu()">Change list</button>
+            <br>
+            <br>
+            <div class="show animate__animated animate__fadeInDown" *ngIf = "show">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <label>Project Id</label>
+                        <input class="form-control"  [(ngModel)]="projectId">
+                        <br>
+                        <label>Project Name</label>
+                        <input class="form-control"  [(ngModel)]="projectName">
+                        <br>
+                        <label>Project Leader</label>
+                        <input class="form-control"  [(ngModel)]="projectLeader">
+                        <br>
+                        <label>Project Part</label>
+                        <input class="form-control"  [(ngModel)]="projectPart">
+                        <br>
+                        <label>Project Position</label>
+                        <input class="form-control"  [(ngModel)]="projectPosition">
+                        <br>
+                        <label>Project Comments</label>
+                        <input class="form-control"  [(ngModel)]="projectComments">
+                        <br>
+                        <button (click) = "addProject()" class="btn btn-primary">Add a project</button>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+
+

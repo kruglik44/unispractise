@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12" style="background-color: #e9e9e9; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.5);">
+            <h1>This is department component</h1>
+    <br>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Group</th>
+                <th scope="col">Position</th>
+                <th scope="col">Leader</th>
+            </tr>
+            </thead>
+            <tbody>
+                    <tr *ngFor = "let user of userTable; index as userId;">
+                        <th scope="row">{{user.id}}</th>
+                        <td><a [routerLink]="['/users', userId]">
+                            {{ user.name }}
+                          </a></td>
+                        <td>{{user.group}}</td>
+                        <td>{{user.position}}</td>
+                        <td>{{user.leader}}</td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>

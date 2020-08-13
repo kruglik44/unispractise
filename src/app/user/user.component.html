@@ -1,0 +1,63 @@
+<div class="container" style="text-align: left;">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Карточка сотрудника</h1>
+        </div>
+    </div>
+    <div *ngIf = "show == false" class="row" style="padding: 10px; background-color: #e9e9e9; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.5);">
+        <div class="col-xs-3" >      
+            <h2>{{user.name}}</h2>
+            <h4><b>Group:</b> {{user.group}}</h4>
+            <h4><b>Position:</b> {{user.position}}</h4>
+            <h4><b>Leader:</b> {{user.leader}}</h4>
+        </div>
+        <div class="col-xs-9">
+            <h4><b>Experience:</b>  {{user.experience}}</h4>
+            <h4><b>Notes:</b>  {{user.note}}</h4>
+            <h4><b>Certificates:</b> {{user.certificates}}</h4>
+            <h4><b>Notes:</b>  {{user.comments}}</h4>
+        </div>
+    </div>
+
+    <div *ngIf = "show == true" class="row" style="padding: 10px; background-color: #e9e9e9; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.5);">
+        <div class="col-xs-3" >     
+            <label>Name</label>
+            <input class="form-control"  [(ngModel)]="user.name">
+            <label>Group</label> 
+            <input class="form-control"  [(ngModel)]="user.group">
+            <label>Position</label>
+            <input class="form-control"  [(ngModel)]="user.position">
+            <label>Leader</label>
+            <input class="form-control"  [(ngModel)]="user.leader">
+        </div>
+        <div class="col-xs-9">
+            <h4><b>Experience:</b>  {{user.experience}}</h4>
+            <form class="example-form">
+                <mat-form-field class="example-full-width">
+                  <input type="text"
+                         placeholder="Pick one"
+                         aria-label="Number"
+                         matInput
+                         [formControl]="myControl"
+                         [matAutocomplete]="auto">
+                  <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                      {{option}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </form>
+            <h4><b>Notes:</b>  {{user.note}}</h4>
+            <h4><b>Certificates:</b> {{user.certificates}}</h4>
+            <h4><b>Notes:</b>  {{user.comments}}</h4>
+        </div>
+    </div>
+
+    <br>
+    <button class="btn btn-primary" (click) = "onChangeMode()">Edit user</button>
+    <hr>
+</div>
+<app-project></app-project>
+<br>
+<br>
+
