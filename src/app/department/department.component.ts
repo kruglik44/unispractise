@@ -8,7 +8,7 @@ import {GetInfoService} from '../shared/getInfo.service'
   styleUrls: ['./department.component.css']
 })
 export class DepartmentComponent implements OnInit {
-
+  panelOpenState = false;
   response: any;
   userTable = [];
   constructor(private getInfoService: GetInfoService) { 

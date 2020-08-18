@@ -3,6 +3,7 @@
     <h2>Current projects</h2>
     <div class="row">
         <div class="col-xs-12">
+            <mat-card>
             <table class="table">
                 <thead>
                 <tr>
@@ -27,14 +28,14 @@
                         </tr>
                 </tbody>
             </table>
+            </mat-card>
         </div>
         <div class="container">
-            <button class="btn btn-success" (click) = "showMenu()">Change list</button>
-            <br>
-            <br>
+            <button style="margin-top: 20px; margin-bottom: 20px;" class="btn btn-success" (click) = "showMenu()">Change list</button>
             <div class="show animate__animated animate__fadeInDown" *ngIf = "show">
                 <div class="row">
                     <div class="col-xs-6">
+                        <mat-card>
                         <label>Project Id</label>
                         <input class="form-control"  [(ngModel)]="projectId">
                         <br>
@@ -55,6 +56,7 @@
                         <br>
                         <button (click) = "addProject()" class="btn btn-primary">Add a project</button>
                         <br>
+                    </mat-card>
                     </div>
                 </div>
             </div>

@@ -18,6 +18,9 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { ReactiveFormsModule } from "@angular/forms";
 import { PercentPipe } from '../app/project/percent.pipe';
 import { LoginComponent } from './login/login.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -43,7 +46,11 @@ import { LoginComponent } from './login/login.component';
     HttpClientModule,
     FormsModule,
     MatAutocompleteModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCardModule,
+    MatExpansionModule,
+    MatTableModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

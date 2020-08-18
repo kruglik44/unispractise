@@ -1,14 +1,16 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
-            <h1>Login page</h1>
-            <label>Enter email</label>
-            <input class="form-control"  [(ngModel)]="email">
-            <br>
-            <label>Enter Password</label>
-            <input class="form-control"  [(ngModel)]="password">
-            <br>
-            <button class="btn btn-primary" (click) = "showInfo()">Log in</button>
+            <mat-card>
+                <h1>Login page</h1>
+                <label>Enter email</label>
+                <input class="form-control"  [(ngModel)]="email">
+                <br>
+                <label>Enter Password</label>
+                <input class="form-control"  [(ngModel)]="password">
+                <br>
+                <button class="btn btn-primary" (click) = "showInfo()">Log in</button>
+            </mat-card>
         </div>
     </div>
 </div>
