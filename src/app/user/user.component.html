@@ -54,7 +54,7 @@
     </div>
 
     <br>
-    <button class="btn btn-primary" (click) = "onChangeMode()">Edit user</button>
+    <button class="btn btn-primary" (click) = "onChangeMode()" [disabled] = "user.name !== 'Dima Kruglov' && role === 'user'">Edit user</button>
     <hr>
 </div>
 <app-project></app-project>

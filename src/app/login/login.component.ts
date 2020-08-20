@@ -17,15 +17,19 @@ export class LoginComponent implements OnInit {
   }
   showInfo(){
     if (this.email === 'admin' && this.password === 'admin'){
-      this.authService.setToTrue(); 
+      this.authService.setToTrue();
+      this.authService.setToTeamLead();
+      this.authService.changeToAdmin();
       this.router.navigate(['/department'])     
     }
     if (this.email ==='user' && this.password === 'user'){
-      this.authService.setToUser();
+      this.authService.setToTrue();
+      this.authService.changeToUser();
       this.router.navigate(['/department']); 
     }
     if (this.email === 'teamlead' && this.password === 'teamlead'){
-      this.authService.setToTeamLead();
+      this.authService.setToTrue();
+      this.authService.changeToTeamLead();
       this.router.navigate(['/department']);
     }
   }

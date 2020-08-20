@@ -1,155 +1,52 @@
 <div class="container">
     <div class="row">
-        <div class="col-xs-12" style="background-color: #e9e9e9; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.5);">
+        <div class="col-xs-12">
             <h1>This is busyness component</h1>
-    <br>
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Group</th>
-                <th scope="col">Position</th>
-                <th scope="col">Leader</th>
-            </tr>
-            </thead>
-            <tbody>
-                    <tr *ngFor = "let user of userTable; index as userId;">
-                        <mat-accordion>
-                            <mat-expansion-panel hideToggle>
-                              <mat-expansion-panel-header>
-                                <mat-panel-title>
-                                    <th scope="row">{{user.id}}</th>
-                                    <td><a [routerLink]="['/users', userId]">
-                                        {{ user.name }}
-                                      </a></td>
-                                    <td>{{user.group}}</td>
-                                    <td>{{user.position}}</td>
-                                    <td>{{user.leader}}</td>
-                                </mat-panel-title>
-                              </mat-expansion-panel-header>
-                              <p>Comments: {{user.comments}}</p>
-                            </mat-expansion-panel>
-                        </mat-accordion>
-                    </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-</div>
-
-<br>
-<br>
-
-
-
-
-
-
-
-
-
-
-
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12">
-            <table mat-table [dataSource]="userTable" class="mat-elevation-z8">
-
-                <!--- Note that these columns can be defined in any order.
-                      The actual rendered columns are set as a property on the row definition" -->
-              
-                <!-- Position Column -->
-                <ng-container matColumnDef="id">
-                  <th mat-header-cell *matHeaderCellDef> # </th>
-                  <td mat-cell *matCellDef="let user"> {{user.id}} </td>
-                </ng-container>
-              
-                <!-- Name Column -->
-                <ng-container matColumnDef="name">
-                  <th mat-header-cell *matHeaderCellDef> Name </th>
-                  <td mat-cell *matCellDef="let user"> {{user.name}} </td>
-                </ng-container>
-              
-                <!-- Weight Column -->
-                <ng-container matColumnDef="group">
-                  <th mat-header-cell *matHeaderCellDef> Group </th>
-                  <td mat-cell *matCellDef="let user">{{user.group}} </td>
-                </ng-container>
-              
-                <!-- Symbol Column -->
-                <ng-container matColumnDef="position">
-                  <th mat-header-cell *matHeaderCellDef> Position </th>
-                  <td mat-cell *matCellDef="let user"> {{user.position}} </td>
-                </ng-container>
-
-                 <!-- Symbol Column -->
-                 <ng-container matColumnDef="leader">
-                    <th mat-header-cell *matHeaderCellDef> Leader </th>
-                    <td mat-cell *matCellDef="let user"> {{user.leader}} </td>
-                  </ng-container>
-
-                   
-              
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-              </table>
+            <br>
+            <mat-accordion>
+                <mat-expansion-panel disabled>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title style="color: gray;">
+                        <h3>ID</h3>
+                        <div class="col-xs-3"  style="text-align: center;">
+                            <h3>Name</h3>
+                        </div>
+                        <div class="col-xs-3"  style="text-align: center;">
+                            <h3>Group</h3>
+                        </div>
+                        <div class="col-xs-3"  style="text-align: center;">
+                            <h3>Position</h3>
+                        </div>
+                        <div class="col-xs-3"  style="text-align: center;">
+                            <h3>Leader</h3>
+                        </div>
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                </mat-expansion-panel>
+            </mat-accordion>
+            <mat-accordion *ngFor = "let user of userTable; index as userId">
+                <mat-expansion-panel hideToggle>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      <p>{{user.id}}</p>
+                    <div class="col-xs-3" style="text-align: center;">       
+                        <a [routerLink]="['/users', userId]">{{ user.name }}</a>
+                    </div>
+                    <div class="col-xs-3" style="text-align: center;">
+                        <p>{{user.group}}</p>
+                    </div>
+                    <div class="col-xs-3" style="text-align: center;">
+                        <p>{{user.position}}</p>
+                    </div>
+                    <div class="col-xs-3" style="text-align: center;">
+                      <p>{{user.leader}}</p>
+                  </div>
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <hr>
+                  <p><strong>Comments:</strong> {{user.comments}}</p>
+                </mat-expansion-panel>
+            </mat-accordion>
         </div>
     </div>
 </div>
-
-
-
-<br>
-<br>
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12">
-            <table mat-table [dataSource]="userTable" class="mat-elevation-z8">
-                <mat-accordion>
-                    <mat-expansion-panel hideToggle>
-                      <mat-expansion-panel-header>
-                        <mat-panel-description>
-                          <!-- Position Column -->
-                          <ng-container matColumnDef="id">
-                            <th mat-header-cell *matHeaderCellDef> # </th>
-                            <td mat-cell *matCellDef="let user"> {{user.id}} </td>
-                          </ng-container>
-                        
-                          <!-- Name Column -->
-                          <ng-container matColumnDef="name">
-                            <th mat-header-cell *matHeaderCellDef> Name </th>
-                            <td mat-cell *matCellDef="let user"> {{user.name}} </td>
-                          </ng-container>
-                        
-                          <!-- Weight Column -->
-                          <ng-container matColumnDef="group">
-                            <th mat-header-cell *matHeaderCellDef> Group </th>
-                            <td mat-cell *matCellDef="let user">{{user.group}} </td>
-                          </ng-container>
-                        
-                          <!-- Symbol Column -->
-                          <ng-container matColumnDef="position">
-                            <th mat-header-cell *matHeaderCellDef> Position </th>
-                            <td mat-cell *matCellDef="let user"> {{user.position}} </td>
-                          </ng-container>
-                
-                           <!-- Symbol Column -->
-                           <ng-container matColumnDef="leader">
-                              <th mat-header-cell *matHeaderCellDef> Leader </th>
-                              <td mat-cell *matCellDef="let user"> {{user.leader}} </td>
-                            </ng-container>
-                
-                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                        </mat-panel-description>
-                      </mat-expansion-panel-header>
-                      <p>This is the primary content of the panel.</p>
-                    </mat-expansion-panel>
-                </mat-accordion>    
-            </table>
-        </div>
-    </div>
-</div>
-<br>
-<br>

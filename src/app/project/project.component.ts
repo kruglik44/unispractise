@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GetInfoService } from '../shared/getInfo.service';
 import {Project} from '../shared/project.model'
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'app-project',
@@ -11,8 +12,10 @@ import { ActivatedRoute } from '@angular/router';
 export class ProjectComponent implements OnInit {
 
   constructor(private getProjectsService: GetInfoService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private authService: AuthService) { }
   projects = [];
+  role: string = '';
   show: boolean = false;
   projectName: string = "";
   projectId: number;
@@ -34,11 +37,12 @@ export class ProjectComponent implements OnInit {
 
   showMenu(){
     this.show = !this.show;
+    this.authService.changeLeaveStatus();
   };
 
   ngOnInit() {
     this.projects = this.getProjectsService.searchProject();
-    
+    this.role = this.authService.showRole();
     this.route.paramMap.subscribe(params => {
       this.userId = params.get('userId')
       console.log(this.userId);

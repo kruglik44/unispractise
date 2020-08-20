@@ -13,6 +13,5 @@ export class IsTeamleadGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       console.log("you are a teamlead");
       return this.auth.teamLeadHasAccess();
-
   }
 }

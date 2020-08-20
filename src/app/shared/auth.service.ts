@@ -8,9 +8,11 @@ export class AuthService {
     constructor(){
 
     }
+    private canLeave: boolean = true;
     private isLogged: boolean = false;
     private isUser: boolean = false;
     private isTeamLead: boolean = false;
+    private role: string = '';
 
     hasAccess(){
         return this.isLogged;
@@ -35,5 +37,24 @@ export class AuthService {
     setToTeamLead(){
         this.isTeamLead = true;
     }
+    changeToUser(){
+        this.role = 'user';
+    }
+    changeToTeamLead(){
+        this.role = 'teamlead';
+    }
+    changeToAdmin(){
+        this.role = 'admin';
+    }
+    showRole(){
+        return this.role;
+    }
 
+    changeLeaveStatus(){
+        this.canLeave = !this.canLeave;
+    }
+
+    showLeaveStatus(){
+        return this.canLeave;
+    }
 }

@@ -4,6 +4,7 @@ import { GetInfoService} from '../shared/getInfo.service'
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'app-user',
@@ -16,10 +17,13 @@ export class UserComponent implements OnInit {
   filteredOptions: Observable<string[]>;
   user: any;
   show: boolean = false;
+  role: string = '';
   constructor(private route: ActivatedRoute,
-    private getInfoService: GetInfoService) { }
+    private getInfoService: GetInfoService,
+    private authService: AuthService) { }
 
   ngOnInit() {
+    this.role = this.authService.showRole();
     this.route.paramMap.subscribe(params => {
      this.user = this.getInfoService.getUser(+params.get('userId'));
     });
@@ -38,5 +42,6 @@ export class UserComponent implements OnInit {
 
   onChangeMode(){
     this.show = !this.show;
+    this.authService.changeLeaveStatus();
   }
 }

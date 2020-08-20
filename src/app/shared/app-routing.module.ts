@@ -7,15 +7,18 @@ import { ProjectElementComponent } from '../project-element/project-element.comp
 import { AuthGuard } from '../auth/auth.guard';
 import { LoginComponent } from '../login/login.component';
 import { IsTeamleadGuard } from '../auth/is-teamlead.guard';
-import { IsUserGuard } from '../auth/is-user.guard';
+import { ProtectfromleavingGuard } from '../auth/protectfromleaving.guard';
+import { ProtectfromleavinguserpageGuard } from '../auth/protectfromleavinguserpage.guard';
+import { ProtectfromleavingprojectsguardGuard } from '../auth/protectfromleavingprojectsguard.guard';
+
 
 
 const appRoutes: Routes = [    
 {path: '', component: LoginComponent},
-{path: 'department', component: DepartmentComponent, canActivate: [AuthGuard], data: {roles: 'admin'}},
+{path: 'department', component: DepartmentComponent, canActivate: [AuthGuard]},
 {path: 'busyness', component: BusynessComponent, canActivate: [AuthGuard]}, 
-{path: 'users/:userId', component: UserComponent},
-{path: 'users/:userId/projects/:projectId', component: ProjectElementComponent}
+{path: 'users/:userId', component: UserComponent, canDeactivate: [ProtectfromleavinguserpageGuard, ProtectfromleavingprojectsguardGuard]},
+{path: 'users/:userId/projects/:projectId', component: ProjectElementComponent, canActivate: [IsTeamleadGuard], canDeactivate:[ProtectfromleavingGuard]}
 ];
 
 @NgModule({
