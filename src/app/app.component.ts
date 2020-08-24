@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from './shared/auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -8,4 +10,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'project1';
+  role: string = 'admin';
+  constructor(private authService: AuthService,
+    private router: Router){
+    this.role = this.authService.showRole();
+
+  }
+
+  logout(){
+    this.router.navigate(['/']);
+  }
+  
 }

@@ -37,7 +37,7 @@ export class ProjectComponent implements OnInit {
 
   showMenu(){
     this.show = !this.show;
-    this.authService.changeLeaveStatus();
+    this.authService.changeLeaveProjectStatus();
   };
 
   ngOnInit() {

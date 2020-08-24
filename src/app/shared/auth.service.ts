@@ -9,6 +9,7 @@ export class AuthService {
 
     }
     private canLeave: boolean = true;
+    private canLeaveProjectComp: boolean = true;
     private isLogged: boolean = false;
     private isUser: boolean = false;
     private isTeamLead: boolean = false;
@@ -56,5 +57,13 @@ export class AuthService {
 
     showLeaveStatus(){
         return this.canLeave;
+    }
+
+    changeLeaveProjectStatus(){
+        this.canLeaveProjectComp = !this.canLeaveProjectComp;
+    }
+
+    showLeaveProjectStatus(){
+        return this.canLeaveProjectComp;
     }
 }

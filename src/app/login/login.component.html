@@ -1,6 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
+            <app-wrongpassword [message] = "error" *ngIf = "error" (close) = "onHandleError()"></app-wrongpassword>
             <mat-card>
                 <h1>Login page</h1>
                 <label>Enter email</label>

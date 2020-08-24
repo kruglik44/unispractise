@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   email: string;
   password: string;
+  error: string;
   constructor(private authService: AuthService,
               private router: Router) { }
 
@@ -32,6 +33,11 @@ export class LoginComponent implements OnInit {
       this.authService.changeToTeamLead();
       this.router.navigate(['/department']);
     }
+    else this.error = 'Wrong password!'
+  }
+
+  onHandleError(){
+    this.error = null;
   }
 }
 

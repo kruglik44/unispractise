@@ -21,6 +21,8 @@ import { LoginComponent } from './login/login.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTableModule} from '@angular/material/table';
+import { WrongpasswordComponent } from './wrongpassword/wrongpassword.component';
+import { AreyousureComponent } from './areyousure/areyousure.component';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import {MatTableModule} from '@angular/material/table';
     ProjectElementComponent,
     UserEditComponent,
     PercentPipe,
-    LoginComponent
+    LoginComponent,
+    WrongpasswordComponent,
+    AreyousureComponent
 
   ],
   imports: [
