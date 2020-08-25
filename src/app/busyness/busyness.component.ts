@@ -13,6 +13,7 @@ import { Employee } from '../shared/employee.model'
 export class BusynessComponent implements OnInit {
   panelOpenState = false;
   userTable: any = [];
+  showEditMenu: boolean = false;
   constructor(private getInfoService: GetInfoService) { }
   displayedColumns: string[] = ['id', 'name', 'group', 'leader', 'position'];
 
@@ -21,4 +22,7 @@ export class BusynessComponent implements OnInit {
     this.userTable = this.getInfoService.search();
   }
 
+  editComments(){
+    this.showEditMenu = !this.showEditMenu;
+  }
 }

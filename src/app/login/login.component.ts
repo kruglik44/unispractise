@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../shared/auth.service';
 import { Router } from '@angular/router';
+import {MatDialog} from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-login',
@@ -11,12 +13,23 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
   error: string;
+  @Output() name = new EventEmitter<string>();
   constructor(private authService: AuthService,
-              private router: Router) { }
+              private router: Router,
+              public dialog: MatDialog) { }
+
+              openDialog() {
+                const dialogRef = this.dialog.open(DialogContentExampleDialog);
+            
+                dialogRef.afterClosed().subscribe(result => {
+                  console.log(`Dialog result: ${result}`);
+                });
+              }
 
   ngOnInit(): void {
   }
   showInfo(){
+    this.name.emit(this.email);
     if (this.email === 'admin' && this.password === 'admin'){
       this.authService.setToTrue();
       this.authService.setToTeamLead();
@@ -33,7 +46,7 @@ export class LoginComponent implements OnInit {
       this.authService.changeToTeamLead();
       this.router.navigate(['/department']);
     }
-    else this.error = 'Wrong password!'
+    else this.openDialog();
   }
 
   onHandleError(){
@@ -41,3 +54,8 @@ export class LoginComponent implements OnInit {
   }
 }
 
+@Component({
+  selector: 'dialog-content-example-dialog',
+  templateUrl: './dialog-content-example-dialog.html',
+})
+export class DialogContentExampleDialog {}

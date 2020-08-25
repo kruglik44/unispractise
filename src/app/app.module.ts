@@ -17,12 +17,15 @@ import { UserEditComponent } from './user-edit/user-edit.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { ReactiveFormsModule } from "@angular/forms";
 import { PercentPipe } from '../app/project/percent.pipe';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent, DialogContentExampleDialog } from './login/login.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTableModule} from '@angular/material/table';
 import { WrongpasswordComponent } from './wrongpassword/wrongpassword.component';
 import { AreyousureComponent } from './areyousure/areyousure.component';
+import { HeaderComponent } from './header/header.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -37,7 +40,9 @@ import { AreyousureComponent } from './areyousure/areyousure.component';
     PercentPipe,
     LoginComponent,
     WrongpasswordComponent,
-    AreyousureComponent
+    AreyousureComponent,
+    HeaderComponent,
+    DialogContentExampleDialog
 
   ],
   imports: [
@@ -53,7 +58,9 @@ import { AreyousureComponent } from './areyousure/areyousure.component';
     ReactiveFormsModule,
     MatCardModule,
     MatExpansionModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule,
+    MatButtonModule
 
   ],
   providers: [],

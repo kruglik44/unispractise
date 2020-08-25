@@ -1,16 +1,2 @@
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Kruglov's project</a>
-    </div>
-    <ul class="nav navbar-nav"> 
-      <li><a routerLink = "/department">Сотрудники по отделам</a></li>
-      <li><a routerLink = "/busyness" >Занятость сотрудников</a></li>
-    </ul>
-    <span class="navbar-text" style="margin-left: 40%;">
-      Welcome {{role}}
-      <button class="btn btn-primary btn-sm" (click) = "logout()" style="padding-top: 2px; padding-bottom: 2px;">Log out</button>
-    </span>
-  </div>
-</nav>
+<app-header></app-header>
 <router-outlet></router-outlet>
