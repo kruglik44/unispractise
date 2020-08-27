@@ -2,6 +2,8 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../shared/auth.service';
 import { Router } from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
+import { Observable } from 'rxjs';
+import { UsernameService } from '../shared/username.service';
 
 
 @Component({
@@ -12,11 +14,12 @@ import {MatDialog} from '@angular/material/dialog';
 export class LoginComponent implements OnInit {
   email: string;
   password: string;
+  guestName: string;
   error: string;
-  @Output() name = new EventEmitter<string>();
   constructor(private authService: AuthService,
               private router: Router,
-              public dialog: MatDialog) { }
+              public dialog: MatDialog,
+              private data: UsernameService) { }
 
               openDialog() {
                 const dialogRef = this.dialog.open(DialogContentExampleDialog);
@@ -26,22 +29,22 @@ export class LoginComponent implements OnInit {
                 });
               }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.data.currentMessage.subscribe(guestName => this.guestName = guestName);
   }
+
   showInfo(){
-    this.name.emit(this.email);
+    this.data.changeMessage(this.email);
     if (this.email === 'admin' && this.password === 'admin'){
       this.authService.setToTrue();
       this.authService.setToTeamLead();
       this.authService.changeToAdmin();
       this.router.navigate(['/department'])     
-    }
-    if (this.email ==='user' && this.password === 'user'){
+    } else if (this.email ==='user' && this.password === 'user'){
       this.authService.setToTrue();
       this.authService.changeToUser();
       this.router.navigate(['/department']); 
-    }
-    if (this.email === 'teamlead' && this.password === 'teamlead'){
+    } else if (this.email === 'teamlead' && this.password === 'teamlead'){
       this.authService.setToTrue();
       this.authService.changeToTeamLead();
       this.router.navigate(['/department']);

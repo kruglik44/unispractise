@@ -10,6 +10,7 @@ import { IsTeamleadGuard } from '../auth/is-teamlead.guard';
 import { ProtectfromleavingGuard } from '../auth/protectfromleaving.guard';
 import { ProtectfromleavinguserpageGuard } from '../auth/protectfromleavinguserpage.guard';
 import { ProtectfromleavingprojectsguardGuard } from '../auth/protectfromleavingprojectsguard.guard';
+import { Error404Component } from '../error404/error404.component';
 
 
 
@@ -18,7 +19,8 @@ const appRoutes: Routes = [
 {path: 'department', component: DepartmentComponent, canActivate: [AuthGuard]},
 {path: 'busyness', component: BusynessComponent, canActivate: [AuthGuard]}, 
 {path: 'users/:userId', component: UserComponent, canDeactivate: [ProtectfromleavinguserpageGuard, ProtectfromleavingprojectsguardGuard]},
-{path: 'users/:userId/projects/:projectId', component: ProjectElementComponent, canActivate: [IsTeamleadGuard], canDeactivate:[ProtectfromleavingGuard]}
+{path: 'users/:userId/projects/:projectId', component: ProjectElementComponent, canActivate: [IsTeamleadGuard], canDeactivate:[ProtectfromleavingGuard]},
+{path: '**', component: Error404Component}
 ];
 
 @NgModule({

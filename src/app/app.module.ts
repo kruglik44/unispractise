@@ -26,6 +26,7 @@ import { AreyousureComponent } from './areyousure/areyousure.component';
 import { HeaderComponent } from './header/header.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
+import { Error404Component } from './error404/error404.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import {MatButtonModule} from '@angular/material/button';
     WrongpasswordComponent,
     AreyousureComponent,
     HeaderComponent,
-    DialogContentExampleDialog
+    DialogContentExampleDialog,
+    Error404Component
 
   ],
   imports: [

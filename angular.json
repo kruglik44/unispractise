@@ -36,7 +36,7 @@
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "with": "src/environments/environment.welcome.ts"
                 }
               ],
               "optimization": true,
@@ -70,6 +70,9 @@
           "configurations": {
             "production": {
               "browserTarget": "project1:build:production"
+            },
+            "welcome": {
+              "browserTarget": "project1:build:welcome"
             }
           }
         },

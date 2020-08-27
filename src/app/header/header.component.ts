@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../shared/auth.service';
+import { UsernameService } from '../shared/username.service';
 
 @Component({
   selector: 'app-header',
@@ -9,15 +10,18 @@ import { AuthService } from '../shared/auth.service';
 })
 export class HeaderComponent implements OnInit {
   
-  name: string;
+  guestName: string;
   constructor(private authService: AuthService,
-    private router: Router){
+    private router: Router,
+    private data: UsernameService){
     
   }
   logout(){
     this.router.navigate(['/']);
+    this.data.changeMessage('');
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.data.currentMessage.subscribe(guestName => this.guestName = guestName);
   }
 }
